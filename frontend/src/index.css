@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+@plugin "daisyui/theme" {
+  name: "forms";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(97.788% 0.004 56.375);
+  --color-base-200: oklch(93.982% 0.007 61.449);
+  --color-base-300: oklch(91.586% 0.006 53.44);
+  --color-base-content: oklch(23.574% 0.066 313.189);
+  --color-primary: oklch(80% 0.105 251.813);
+  --color-primary-content: oklch(37% 0.146 265.522);
+  --color-secondary: oklch(92% 0.006 264.531);
+  --color-secondary-content: oklch(37% 0.146 265.522);
+  --color-accent: oklch(80% 0.105 251.813);
+  --color-accent-content: oklch(37% 0.146 265.522);
+  --color-neutral: oklch(80% 0.105 251.813);
+  --color-neutral-content: oklch(37% 0.146 265.522);
+  --color-info: oklch(68% 0.169 237.323);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(69% 0.17 162.48);
+  --color-success-content: oklch(26% 0.051 172.552);
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(28% 0.066 53.813);
+  --color-error: oklch(64% 0.246 16.439);
+  --color-error-content: oklch(27% 0.105 12.094);
+  --radius-selector: 1rem;
+  --radius-field: 1rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 2px;
+  --depth: 1;
+  --noise: 0;
+}
+
+
+
+@font-face {
+  font-family: 'SFPro';
+  src: url('./assets/sfproregular.OTF');
+}
+
+@font-face {
+  font-family: 'Slussel';
+  src: url('./assets/slussenextregular.otf');
+}
+
+html {
+  /* background-color: #f3f4f5; */
+
+  background: linear-gradient(to top right, rgba(139, 194, 255, 0.3), #fff);
+}
+#root {
+font-family: /* 'Slussel',  */'SFPro';
+max-width: 1400px;
+margin: auto;
+padding: 20px;
+padding-left: 50px;
+background-color: transparent;
+min-height: 100vh;
+}
+
+
+@media (max-width: 1444px) {
+  #logo{
+    position: fixed;
+    left: 5px !important;
+    width: 35px;
+  }
+}
+
+
+.gradient-text-blue {
+  background: linear-gradient(to right, var(--color-primary), var(--color-primary-content));
+  background-clip: text;
+  color: transparent;
+}
+
+
+
+
+
+.border-spin::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 4px; /* thickness of border */
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    var(--color-primary),
+    var(--color-primary-content),
+    var(--color-primary)
+  );
+  /* “cut out” middle so only border shows */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: opacity 0.3s ease, transform 0.8s linear;
+}
+
+/* on hover – animate border like it's being drawn in a circle */
+.border-spin:hover::before {
+  opacity: 1;
+  transform: rotate(360deg);
+}
