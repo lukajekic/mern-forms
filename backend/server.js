@@ -19,7 +19,7 @@ const formsroutes = require('./routes/FormsRoutes')
 app.use('/api/form', formsroutes)
 const responsesroutes = require('./routes/ResponsesRoutes')
 app.use('/api/response', responsesroutes)
-const analyticsrouter = require('../backend/routes/AnalyticsRoutes')
+const analyticsrouter = require('./routes/AnalyticsRoutes')
 app.use('/api/analytics', analyticsrouter)
 
 
